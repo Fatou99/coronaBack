@@ -18,9 +18,10 @@ class CreateReportsTable extends Migration
             $table->float("longitude");
             $table->float("latitude");
             $table->string("type");
-            $table->string("urlToImage");
+            $table->longText("urlToImage");
             $table->string("time");
-            $table->string("description");
+            $table->boolean("affichage")->default(true);
+            $table->string("description")->nullable();
             $table->timestamp("created_at")->nullable();
             $table->timestamp("updated_at")->nullable();
 

@@ -62,8 +62,18 @@ class ReportController extends Controller
 // $report->time = $post_data['time'];
 // $report->save();
 
+//            $post_data = $request->all();
+//$report = Reporting::create($post_data);
             $post_data = $request->all();
-$report = Reporting::create($post_data);
+            // echo "avant modification = " . $post_data["urlToImage"];
+            $toStore = base64_decode( $post_data["urlToImage"]);
+            $name = date('YmdHis');
+            // echo "aprés modification = " . $post_data["urlToImage"];
+            file_put_contents("images/$name.jpg",$toStore);
+            $post_data["urlToImage"] = "public\images\$name.jpg" ;
+            $report = Reporting::create($post_data);
+
+            $report->save();
 
 
 //       [
@@ -73,7 +83,7 @@ $report = Reporting::create($post_data);
 //            'urlToImage' => $request->get('urlToImage'),
 //            'time' => $request->get('time'),
 //        ]);
-        $report->save();
+//        $report->save();
 //        return redirect('/result')->with('success', 'report saved!');
     }
 

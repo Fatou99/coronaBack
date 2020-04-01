@@ -22,6 +22,8 @@ class CreateReportsTable extends Migration
             $table->string("time");
             $table->boolean("affichage")->default(true);
             $table->string("description")->nullable();
+            $table->string("gouvernorat");
+            $table->string("delegation");
             $table->timestamp("created_at")->nullable();
             $table->timestamp("updated_at")->nullable();
 

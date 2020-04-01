@@ -16,5 +16,7 @@ $factory->define(\App\Reporting::class, function (Faker $faker) {
         'urlToImage' => $faker->address,
         'time' =>$faker->time(),
         'description' =>$faker->text(),
+        'gouvernorat' =>$faker->text(),
+        'delegation' =>$faker->text(),
     ];
 });

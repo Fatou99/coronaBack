@@ -70,7 +70,7 @@ class ReportController extends Controller
             $name = date('YmdHis');
             // echo "aprés modification = " . $post_data["urlToImage"];
             file_put_contents("images/$name.jpg",$toStore);
-            $post_data["urlToImage"] = "public\images\$name.jpg" ;
+            $post_data["urlToImage"] = "public\images/$name.jpg" ;
             $report = Reporting::create($post_data);
 
             $report->save();
